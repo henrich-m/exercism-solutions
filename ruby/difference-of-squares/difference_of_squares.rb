@@ -5,19 +5,19 @@ end
 class Squares
   def initialize(number)
     @number = number
+    @range = (1..number)
   end
 
   def square_of_sum
     @square_of_sum ||= begin
-      sum = (1..@number).to_a.inject(:+)
-      sum * sum
+      @range.sum**2
     end
   end
 
   def sum_of_squares
     @sum_of_squares ||= begin
-      (1..@number).to_a.map do |number|
-        number * number
+      @range.map do |number|
+        number**2
       end.inject(:+)
     end
   end
